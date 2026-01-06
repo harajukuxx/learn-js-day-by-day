@@ -23,3 +23,18 @@ totalPrice = productprice * (1-discount)
 console.log(`ราคาก่อนลด คือ ${productPrice}`)
 console.log(`จำนวนส่วนลดที่ได้รับ ${productPrice * discount}`)
 console.log(`และราคาสุทธิ คือ ${totalPrice}`)
+
+/*
+### โจทย์ข้อที่ 2: `for` Loop (แม่สูตรคูณ)
+
+**สถานการณ์:** คุณต้องการสร้างโปรแกรมช่วยสอนเด็กประถมท่องสูตรคูณ
+
+* จงใช้ `for` loop พิมพ์แม่สูตรคูณ **แม่ 5** ออกมา
+* ให้แสดงผลตั้งแต่  จนถึง 
+* ผลลัพธ์ที่แสดงควรอยู่ในรูปแบบ: `5 x 1 = 5`, `5 x 2 = 10` ... จนจบ
+*/
+
+const num = 5
+for (let i = 1; i <= 12; i++) {
+    console.log(`${num} x ${i} = ${num * i}`);
+}
