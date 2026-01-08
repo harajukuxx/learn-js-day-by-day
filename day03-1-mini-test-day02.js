@@ -28,6 +28,15 @@ console.log(isEvennum(9))
 const celsiusToFahrenheit = (celsius) => (celsius * 9/5) + 32
 console.log(`อุณหภูมิในหน่วยเซลเซียส ${celsiusToFahrenheit.celsius} แปลงเป็นหน่วยฟาเรนไฮต์ ${celsiusToFahrenheit(100)}`)
 
+/*
+ข้อ 4: การเรียกใช้ตัวแปรใน Template Literal
+จุดที่ผิด: ${celsiusToFahrenheit.celsius} พยายามจะเข้าถึง property ชื่อ celsius ของตัวฟังก์ชัน ซึ่งจะทำให้ได้ค่า undefined
+วิธีแก้: หากต้องการแสดงค่า input คุณควรประกาศตัวแปรก่อน หรือใส่ค่าตัวเลขลงไปตรงๆ ครับ
+*/
+
+let inputCelsius = 100;
+console.log(`อุณหภูมิในหน่วยเซลเซียส ${inputCelsius} แปลงเป็นหน่วยฟาเรนไฮต์ ${celsiusToFahrenheit(inputCelsius)}`)
+
 /*ข้อที่ 5: สรุปราคาสินค้า (Integration) จงสร้างฟังก์ชันชื่อ getTotalPrice 
 ที่รับพารามิเตอร์ 2 ตัวคือ price (ราคาสินค้า) และ quantity (จำนวน)
 ให้ฟังก์ชันคำนวณราคารวม (ราคาสินค้า x จำนวน) แต่ถ้าราคารวม มากกว่า 1,000 บาท ให้ลดราคา 10%
@@ -40,3 +49,20 @@ const getTotalPrice = (price,quantity) => {
         price*quantity
     }  
 }
+
+/*
+ข้อ 5: การลืมคำสั่ง return
+จุดที่ผิด: ภายในเครื่องหมาย { } ของ Arrow Function ถ้าต้องการส่งค่ากลับ "ต้องเขียนคำว่า return เสมอ" ครับ 
+(ต่างจากข้อ 2, 3, 4 ที่เขียนบรรทัดเดียวโดยไม่มีปีกกา ซึ่ง JavaScript จะ return ให้เองอัตโนมัติ)
+วิธีแก้: เติมคำว่า return หน้าการคำนวณ
+*/
+
+const getTotalPrice2 = (price, quantity) => {
+    let total = price * quantity;
+    if (total > 1000) {
+        return total * 0.9; // ต้องมี return
+    } else {
+        return total;       // ต้องมี return
+    }  
+}
+console.log(getTotalPrice2(200, 6)); // ทดสอบ: 1200 ลด 10% เหลือ 1080
